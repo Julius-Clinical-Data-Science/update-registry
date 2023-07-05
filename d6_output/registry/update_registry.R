@@ -11,11 +11,11 @@
 library(data.table) 
 
 
-path_to_folder <- "."
-path_to_d6_output <- file.path(".", "d6_output")
-
-# Create new subfolder in the d6 folder which can be output to DRE 
-dir.create(file.path(path_to_d6_output, "registry"))
+# path_to_folder <- "."
+# path_to_d6_output <- file.path(".", "d6_output")
+# 
+# # Create new subfolder in the d6 folder which can be output to DRE 
+# dir.create(file.path(path_to_d6_output, "registry"))
 
 
 create_hash_registry <- function(path_to_folder, path_to_d6_output, write_or_return = "return") {
@@ -47,7 +47,7 @@ create_hash_registry <- function(path_to_folder, path_to_d6_output, write_or_ret
   }
 }
 
-create_hash_registry(path_to_folder, path_to_d6_output, write_or_return = "write")
+# create_hash_registry(path_to_folder, path_to_d6_output, write_or_return = "write")
 
 
 
@@ -105,8 +105,8 @@ compare_folder_with_registry <- function(
   }
 }
 
-compare_folder_with_registry(path_to_folder, path_to_d6_output)
-compare_folder_with_registry(path_to_folder, path_to_d6_output,  write_or_return = "write")
+# compare_folder_with_registry(path_to_folder, path_to_d6_output)
+# compare_folder_with_registry(path_to_folder, path_to_d6_output,  write_or_return = "write")
 
 
 

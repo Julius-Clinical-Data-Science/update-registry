@@ -1,5 +1,22 @@
 
+path_to_folder <- "."
+path_to_d6_output <- file.path(".", "d6_output")
+
+
+# INSTRUCTION UPDATE REGISTRY REPO
+## Create new subfolder in the d6 folder which can be output to DRE 
+dir.create(file.path(path_to_d6_output, "registry"))
+## Copy the script "update_registry.R" in the new directory called registry
+source(file.path(path_to_d6_output, "registry", "update_registry.R"))
+
+
+create_hash_registry(path_to_folder, path_to_d6_output, write_or_return = "write")
 source("step1.R")
+compare_folder_with_registry(path_to_folder, path_to_d6_output, write_or_return = "write")
 source("step2.R")
+compare_folder_with_registry(path_to_folder, path_to_d6_output, write_or_return = "write")
 source(file.path("step_3_4", "step3.R"))
+compare_folder_with_registry(path_to_folder, path_to_d6_output, write_or_return = "write")
 source(file.path("step_3_4", "step4.R")) 
+
+

@@ -2,6 +2,8 @@
 path_to_folder <- "."
 path_to_d6_output <- file.path(".", "d6_output")
 
+# For example purpose, create the d6 output folder 
+dir.create(file.path(path_to_d6_output))
 
 # INSTRUCTION UPDATE REGISTRY REPO
 ## Create new subfolder in the d6 folder which can be output to DRE 
@@ -18,5 +20,6 @@ compare_folder_with_registry(path_to_folder, path_to_d6_output, write_or_return 
 source(file.path("step_3_4", "step3.R"))
 compare_folder_with_registry(path_to_folder, path_to_d6_output, write_or_return = "write")
 source(file.path("step_3_4", "step4.R")) 
+compare_folder_with_registry(path_to_folder, path_to_d6_output, write_or_return = "return")
 
 

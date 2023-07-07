@@ -7,7 +7,7 @@
 ####                          no connection to git
 #### INPUT FILES USED       : A path to the folder or repo that needs documentation 
 ####                          of .R scripts and the path to the d6 output folder  
-#### OUTPUT FILES CREATED   : A file called registry/registry.csv within the d6  
+#### OUTPUT FILES CREATED   : A file called registry/registry_init.csv within the d6  
 ####                          output folder, which will contain a row for all the .R files
 ####                          and a hash for every .R file which is created by the
 ####                          create_hash_registry function. When the compare_folder_with_registry
@@ -47,7 +47,8 @@ create_hash_registry <- function(path_to_folder, path_to_d6_output, write_or_ret
   # Write to d6 output if write_or_return is set to write
   # Return registry if write_or_return is set to return
   if (write_or_return == "write") {
-    fwrite(registry, file.path(path_to_d6_output, 'registry', "registry.csv"))
+    fwrite(registry, file.path(path_to_d6_output, 'registry', paste0("registry_init.csv")))
+    # fwrite(registry, file.path(path_to_d6_output, 'registry', paste0("registry_init_", janitor::make_clean_names(Sys.time()), ".csv")))
   } else if (write_or_return == 'return') {
     return(registry[])
   }
@@ -60,7 +61,7 @@ compare_folder_with_registry <- function(
 ) {
   #' Use the create_hash_registry function to create a registry of the currently 
   #' saved versions of all scripts, and compare against the orginal registry. 
-  #' This function will only work if there is a file called [path_to_d6_output]/registry/registry.csv 
+  #' This function will only work if there is a file called [path_to_d6_output]/registry/registry_init.csv 
   #' that is created with the function create_hash_registry
   #' If write_or_return is set to "write", this function outputs a folder, 
   #' which has a time stamp in the name, in the folder [path_to_d6_output]/registry 
@@ -74,7 +75,7 @@ compare_folder_with_registry <- function(
   registry_new <- create_hash_registry(path_to_folder = path_to_folder, path_to_d6_output = NULL, write_or_return = "return")
   
   # Load on the old registry
-  registry_old <- fread(file.path(path_to_d6_output, "registry", "registry.csv"))
+  registry_old <- fread(file.path(path_to_d6_output, "registry", "registry_init.csv"))
   
   # Find the files that do not have the same commit hash
   adjusted_files <- registry_new[!registry_old, on = "commit_hash"]

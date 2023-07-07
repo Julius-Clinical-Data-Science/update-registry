@@ -1,6 +1,6 @@
 
 path_to_folder <- "."
-path_to_d6_output <- file.path(".", "d6_output")
+path_to_d6_output <- file.path("..", "d6_output")
 
 # For example purpose, create the d6 output folder 
 dir.create(file.path(path_to_d6_output))

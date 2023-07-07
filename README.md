@@ -14,14 +14,13 @@ Applying the tool correctly, will ensure consistency and reproducibility of resu
 - Note that there now exists an additional folder named after the timestamp of creation in d6_output/registry/ which contains a registry update csv file and a copy of the updated R script.
 
 
-## How to apply the tool
 
-### DESCRIPTION OF PURPOSE: 
+## Descrition of the tool 
 Providing tools to create a registry that helps to keep track of local changes after a repository has been downloaded and uploaded to a server that has no connection to git
 
-### INPUT FILES USED
+## Input
 A path to the folder or repo that needs documentation of .R scripts and the path to the d6 output folder  
 
-### OUTPUT FILES CREATED: 
+## Output
 A file called registry/registry_init.csv within the d6 output folder, which will contain a row for all the .R files and a hash for every .R file which is created by the create_hash_registry function. When the compare_folder_with_registry is executed, it will create a folder called registry/[timestamp] which will contain a csv file  called registry_adjusted_files.csv which lists all the changed files, and the folder will also contain a copy of the updated .R file.
 

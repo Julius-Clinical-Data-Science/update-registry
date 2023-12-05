@@ -15,7 +15,7 @@ Applying the tool correctly, will ensure consistency and reproducibility of resu
 
 
 
-## Descrition of the tool 
+## Description of the tool 
 Providing tools to create a registry that helps to keep track of local changes after a repository has been downloaded and uploaded to a server that has no connection to git
 
 ## Input
